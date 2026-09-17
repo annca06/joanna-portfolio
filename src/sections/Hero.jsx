@@ -12,7 +12,7 @@ const letters = site.name.toUpperCase().split('');
    │  TO USE YOUR OWN MARK HERE                                         │
    │                                                                    │
    │  1. Put the file in `public/`   →  public/logo.svg                 │
-   │  2. Set CIPHER_SRC below        →  const CIPHER_SRC = '/logo.svg'  │
+   │  2. Set CIPHER_SRC below        →  const CIPHER_SRC = import.meta.env.BASE_URL + 'logo.svg'  │
    │  3. Adjust CIPHER_HEIGHT to taste                                  │
    │                                                                    │
    │  While CIPHER_SRC is an empty string the typeset JO monogram is    │
@@ -22,7 +22,7 @@ const letters = site.name.toUpperCase().split('');
    This is a separate mark from the header and footer wordmark, which lives
    in components/Brand.jsx.
    ========================================================================== */
-const CIPHER_SRC = '/logo.svg';
+const CIPHER_SRC = import.meta.env.BASE_URL + 'logo.svg';
 const CIPHER_HEIGHT = 40; // px — the one number to change if the mark reads
 //                          too large or too small between the hairlines.
 

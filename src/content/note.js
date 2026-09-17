@@ -11,7 +11,7 @@ export const note = {
   /* The photograph beside the note. `src` is relative to the `public`
      folder. Delete the `caption` line and no caption is rendered. */
   image: {
-    src: '/images/5_note-from-jo-fitted.jpg',
+    src: '${import.meta.env.BASE_URL}images/5_note-from-jo-fitted.jpg',
     alt: 'Joanna seated on a pale plinth against a studio backdrop, in a dark brown waistcoat and matching trousers with leopard-print heels.',
     caption: 'Fig. 05',
   },

@@ -35,17 +35,17 @@ export const industriesNote =
    -------------------------------------------------------------------------- */
 export const directionImages = [
   {
-    src: '/images/A_direction-strip-lifestyle.jpg',
+    src: '${import.meta.env.BASE_URL}images/A_direction-strip-lifestyle.jpg',
     alt: 'Someone in a sage linen waistcoat holding an armful of white peonies and eucalyptus, with a paper bag of peaches in the other hand.',
     caption: 'Ref. A — Lifestyle',
   },
   {
-    src: '/images/B_direction-strip-sport.jpg',
+    src: '${import.meta.env.BASE_URL}images/B_direction-strip-sport.jpg',
     alt: 'A woman on a terrace above the McLaren Formula 1 team building at Monaco, moored yachts and the hillside city behind her.',
     caption: 'Ref. B — Sport',
   },
   {
-    src: '/images/C_direction-strip-motion.jpg',
+    src: '${import.meta.env.BASE_URL}images/C_direction-strip-motion.jpg',
     alt: 'A woman at a dark wood table by a window, reading the official Wimbledon 2025 programme beside a signed tennis ball, a Centre Court ticket and a green silk scarf.',
     caption: 'Ref. C — Motion',
   },
