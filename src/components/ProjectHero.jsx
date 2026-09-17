@@ -17,7 +17,7 @@ export default function ProjectHero({
   intro,
   image,
   backLabel = 'Work',
-  backHref = '/#work',
+  backHref = '/joanna-portfolio/#work',
   railEnd = 'Case Study',
 }) {
   return (

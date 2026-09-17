@@ -220,6 +220,6 @@ export const psycoffeeNav = {
   },
   index: {
     label: 'Back to Work',
-    href: '/#work',
+    href: '/joanna-portfolio/#work',
   },
 };
