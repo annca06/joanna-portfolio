@@ -73,7 +73,7 @@ const entries = [
     alt: 'A woman at a stone balustrade at golden hour, looking out over a clay tennis court and a seafront racing circuit.',
     caption: 'Fig. 04',
     layout: 'inset',
-    href: '/work/psycoffee/',
+    href: '/joanna-portfolio/work/psycoffee/',
     cta: 'View Project',
   },
 ];
