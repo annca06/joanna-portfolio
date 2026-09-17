@@ -16,6 +16,7 @@ import react from '@vitejs/plugin-react';
 const entry = (path) => fileURLToPath(new URL(path, import.meta.url));
 
 export default defineConfig({
+  base: '/joanna-portfolio/',
   plugins: [react()],
   build: {
     rollupOptions: {
