@@ -16,10 +16,10 @@ export const site = {
 
   /* The hero portrait.
      `src` is relative to the `public` folder — a file saved as
-     public/images/portrait.jpg is written here as '${import.meta.env.BASE_URL}images/portrait.jpg'.
+     public/images/portrait.jpg is written here as '/joanna-portfolio/images/portrait.jpg'.
      Delete the `caption` line and no caption is rendered. */
   heroImage: {
-    src: '${import.meta.env.BASE_URL}images/1_hero-portrait.jpg',
+    src: '/joanna-portfolio/images/1_hero-portrait.jpg',
     alt: 'Joanna walking through a sunlit sitting room in a cream silk shirt and wide-leg trousers, a stoneware mug in one hand and a laptop under her arm.',
     caption: 'Fig. 01',
   },

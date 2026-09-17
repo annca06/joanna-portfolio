@@ -21,7 +21,7 @@ export const psycoffee = {
      profile screenshot, a device mockup or an editorial composition — the
      frame never crops, so any of the three sits correctly. */
   heroImage: {
-    src: '${import.meta.env.BASE_URL}images/projects/psycoffee/Instagram-profile-screenshot.jpg',
+    src: '/joanna-portfolio/images/projects/psycoffee/Instagram-profile-screenshot.jpg',
     alt: 'The Instagram profile for the.psycoffee, titled “Cup of Jo”, with the bio “this is her world, a curated nostalgia of elegance lost and found” and three story highlights: Pursuits, Memoirs and Her.',
     caption: 'Fig. 01',
   },
@@ -120,37 +120,37 @@ export const psycoffee = {
     {
       numeral: 'I',
       title: 'Whispers of Hope',
-      src: '${import.meta.env.BASE_URL}images/projects/psycoffee/reel-whispers-of-hope.jpg',
+      src: '/joanna-portfolio/images/projects/psycoffee/reel-whispers-of-hope.jpg',
       alt: 'Reel cover: a clay tennis court on a cliffside terrace above the sea at sunset, titled “Whispers of Hopes” in gold script.',
     },
     {
       numeral: 'II',
       title: 'Dreams',
-      src: '${import.meta.env.BASE_URL}images/projects/psycoffee/reel-dreams.jpg',
+      src: '/joanna-portfolio/images/projects/psycoffee/reel-dreams.jpg',
       alt: 'Reel cover: a hillside town above a seafront racing circuit at sunset, titled “Dreams” in gold script.',
     },
     {
       numeral: 'III',
       title: 'Memories',
-      src: '${import.meta.env.BASE_URL}images/projects/psycoffee/reel-memories.jpg',
+      src: '/joanna-portfolio/images/projects/psycoffee/reel-memories.jpg',
       alt: 'Reel cover: a woman on a terrace holding a coffee, looking out over a coastal town and racetrack, titled “Memories” in gold script.',
     },
     {
       numeral: 'IV',
       title: 'Summer Recap in Cali',
-      src: '${import.meta.env.BASE_URL}images/projects/psycoffee/reel-summer-recap-in-cali.jpg',
+      src: '/joanna-portfolio/images/projects/psycoffee/reel-summer-recap-in-cali.jpg',
       alt: 'Reel cover: an armful of white peonies and a paper bag of peaches, titled “Summer recap in Cali”.',
     },
     {
       numeral: 'V',
       title: '24 Hours at Wimbledon',
-      src: '${import.meta.env.BASE_URL}images/projects/psycoffee/reel-24-hours-at-wimbledon.jpg',
+      src: '/joanna-portfolio/images/projects/psycoffee/reel-24-hours-at-wimbledon.jpg',
       alt: 'Reel cover: a woman in tennis whites and a green tie carrying a coffee past an ivy-clad clubhouse, titled “24 Hours at Wimbledon”.',
     },
     {
       numeral: 'VI',
       title: '1 Minute I Imagined I Was in Monaco',
-      src: '${import.meta.env.BASE_URL}images/projects/psycoffee/reel-one-minute-in-monaco.jpg',
+      src: '/joanna-portfolio/images/projects/psycoffee/reel-one-minute-in-monaco.jpg',
       alt: 'Reel cover: a close portrait of a woman in dark cat-eye sunglasses, titled “1 Minute I Imagined I Was in Monaco”.',
     },
   ],
