@@ -1,0 +1,227 @@
+.hero {
+  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+  padding-bottom: var(--section-y);
+  scroll-margin-top: 5rem;
+}
+
+/* ---------- Publication rail ---------- */
+.hero__rail {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--rule-ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero__rail-end {
+  text-align: right;
+}
+
+/* ---------- Masthead ----------
+   Letters are spread edge to edge with flexbox, the way a nameplate is
+   letterspaced to the full measure of the page. */
+.hero__masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: var(--fs-masthead);
+  font-weight: 400;
+  font-optical-sizing: auto;
+  line-height: 0.86;
+  letter-spacing: 0;
+  color: var(--c-green);
+  margin-top: clamp(1.25rem, 3vw, 2.5rem);
+  user-select: none;
+}
+
+/* ---------- Strapline: script and categories share one editorial line ---------- */
+.hero__strapline {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--s-5);
+  flex-wrap: wrap;
+  padding-top: clamp(0.5rem, 1.4vw, 1rem);
+  padding-bottom: clamp(1rem, 2.2vw, 1.5rem);
+  border-bottom: 1px solid var(--rule-ink);
+}
+
+.hero__script {
+  font-size: var(--fs-script-lg);
+  color: var(--c-cabernet);
+  /* Script faces sit high in their box; nudge the baseline back down. */
+  margin-bottom: -0.12em;
+}
+
+.hero__disciplines {
+  color: var(--c-ink);
+  padding-bottom: 0.35em;
+}
+
+/* ---------- Body of the cover ---------- */
+.hero__body {
+  margin-top: clamp(2.25rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.hero__intro {
+  grid-column: 1 / span 5;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.hero__summary {
+  max-width: 30ch;
+  color: var(--c-ink);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4) var(--s-6);
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+/* The secondary action is a plain editorial link, not a second box.
+   The anchor supplies the 48px touch target; the underline sits on the
+   text itself so it reads as a rule under the words. */
+.hero__secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color var(--dur) var(--ease);
+}
+
+.hero__secondary-text {
+  padding-bottom: 4px;
+  box-shadow: inset 0 -1px 0 0 var(--rule-strong);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.hero__secondary:hover,
+.hero__secondary:focus-visible {
+  color: var(--c-cabernet);
+}
+
+.hero__secondary:hover .hero__secondary-text,
+.hero__secondary:focus-visible .hero__secondary-text {
+  box-shadow: inset 0 -1px 0 0 var(--c-cabernet);
+}
+
+.hero__secondary:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+.hero__est {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  color: var(--c-green);
+}
+
+.hero__est .label {
+  color: var(--c-green);
+}
+
+/* Minimal monogram: letterforms and two hairlines, nothing enclosing them. */
+.hero__cipher {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  padding: 0.35rem 0.95rem 0.4rem;
+  border-left: 1px solid var(--rule-strong);
+  border-right: 1px solid var(--rule-strong);
+}
+
+/* Holding a mark rather than letterforms. The tracking and indent exist to
+   space two capitals evenly and would otherwise read as a gap to the right
+   of the image, and the box needs to centre on the mark instead of on a
+   line of text. */
+.hero__cipher--mark {
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0;
+  text-indent: 0;
+  padding-block: 0.3rem;
+}
+
+/* Released from the global `max-width: 100%` on images so the mark is sized
+   by its height alone and keeps its proportions. */
+.hero__cipher-image {
+  width: auto;
+  max-width: none;
+}
+
+.hero__figure {
+  grid-column: 7 / -1;
+}
+
+.hero__frame {
+  aspect-ratio: 4 / 5;
+}
+
+/* ---------- Tablet ---------- */
+@media (max-width: 900px) {
+  .hero__intro {
+    grid-column: 1 / -1;
+    order: 2;
+  }
+
+  .hero__figure {
+    grid-column: 1 / -1;
+    order: 1;
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+  }
+
+  .hero__frame {
+    aspect-ratio: 3 / 2;
+  }
+
+  .hero__summary {
+    max-width: 38ch;
+  }
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 560px) {
+  .hero__rail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .hero__rail-end {
+    text-align: left;
+  }
+
+  .hero__strapline {
+    display: block;
+  }
+
+  .hero__disciplines {
+    padding-bottom: 0;
+    padding-top: 0.9rem;
+  }
+
+  .hero__frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
+  }
+}

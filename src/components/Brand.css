@@ -1,0 +1,42 @@
+/* The branding area. Deliberately plain: a typeset wordmark, no badge,
+   no container, nothing that would compete with a real logo later. */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.brand__wordmark {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  /* The trailing letter-space would otherwise pull the word off-centre. */
+  text-indent: 0.26em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* A supplied logo file sizes itself from LOGO_WIDTH in Brand.jsx. */
+.brand__asset {
+  height: auto;
+  max-width: 100%;
+}
+
+.brand--ink {
+  color: var(--c-ink);
+}
+
+.brand--ivory {
+  color: var(--c-ivory);
+}
+
+@media (max-width: 560px) {
+  .brand__wordmark {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+    text-indent: 0.2em;
+  }
+}

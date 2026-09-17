@@ -1,0 +1,119 @@
+/* ==========================================================================
+   PROJECT NAVIGATION — the foot of a case study
+   ========================================================================== */
+
+.project-nav {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+}
+
+.project-nav__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-6);
+  flex-wrap: wrap;
+  border-top: 1px solid var(--rule-ink);
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.project-nav__side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  min-width: 0;
+}
+
+.project-nav__side--end {
+  align-items: flex-end;
+  text-align: right;
+}
+
+/* ---------- One neighbouring volume ---------- */
+.project-nav__entry {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+
+.project-nav__entry--end {
+  justify-items: end;
+}
+
+.project-nav__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4);
+  line-height: 1.25;
+  text-wrap: pretty;
+}
+
+.project-nav__volume {
+  color: var(--c-cabernet);
+}
+
+/* Linked: the title picks up the cabernet on hover. */
+.project-nav__entry--link .project-nav__title {
+  transition: color var(--dur) var(--ease);
+}
+
+.project-nav__entry--link:hover .project-nav__title,
+.project-nav__entry--link:focus-visible .project-nav__title {
+  color: var(--c-cabernet);
+}
+
+/* Not yet linked: typeset, quiet, and plainly not interactive. */
+.project-nav__entry--quiet .project-nav__title {
+  color: var(--c-ink-faint);
+}
+
+.project-nav__entry--quiet .project-nav__volume {
+  color: var(--c-ink-faint);
+}
+
+/* ---------- Back to the index ----------
+   The anchor supplies the 48px touch target; the rule sits on the words
+   themselves, the same way the hero's secondary action is built. */
+.project-nav__index {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color var(--dur) var(--ease);
+}
+
+.project-nav__index-text {
+  padding-bottom: 4px;
+  box-shadow: inset 0 -1px 0 0 var(--rule-strong);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.project-nav__index:hover,
+.project-nav__index:focus-visible {
+  color: var(--c-cabernet);
+}
+
+.project-nav__index:hover .project-nav__index-text,
+.project-nav__index:focus-visible .project-nav__index-text {
+  box-shadow: inset 0 -1px 0 0 var(--c-cabernet);
+}
+
+.project-nav__index:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 560px) {
+  .project-nav__inner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .project-nav__side--end {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

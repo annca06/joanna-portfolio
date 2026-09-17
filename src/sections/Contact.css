@@ -1,0 +1,67 @@
+.contact__kicker {
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.contact__inner {
+  align-items: start;
+}
+
+.contact__pitch {
+  grid-column: 1 / span 6;
+}
+
+.contact__title {
+  font-size: var(--fs-h2);
+  max-width: 12ch;
+}
+
+.contact__copy {
+  margin-top: var(--s-5);
+  max-width: 40ch;
+}
+
+.contact__cta {
+  margin-top: clamp(2rem, 4vw, 2.75rem);
+}
+
+/* ---------- Classified-style contact listings ---------- */
+.contact__channels {
+  grid-column: 8 / -1;
+  padding-top: 0.5rem;
+}
+
+.contact__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: clamp(0.85rem, 2vw, 1.15rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.contact__row:first-child {
+  border-top: 1px solid var(--rule-ink);
+}
+
+.contact__value {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4);
+  text-align: right;
+  word-break: break-word;
+}
+
+.contact__value--empty {
+  color: var(--c-ink-faint);
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .contact__pitch,
+  .contact__channels {
+    grid-column: 1 / -1;
+  }
+
+  .contact__channels {
+    margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  }
+}

@@ -1,0 +1,240 @@
+.work__head {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.work__title {
+  font-size: var(--fs-h2);
+  margin-top: clamp(0.75rem, 1.6vw, 1.25rem);
+}
+
+.work__list > li + li {
+  margin-top: clamp(3.5rem, 8vw, 7rem);
+}
+
+/* ---------- The rule line above each project ---------- */
+.work-item__head {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 0.85rem;
+}
+
+/* The volume marker: a small tracked "VOL." sitting against a large
+   serif numeral, so each project opens like a chapter. */
+.work-item__volume {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  flex: none;
+}
+
+.work-item__volume-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-cabernet);
+}
+
+.work-item__number {
+  font-family: var(--font-serif);
+  font-size: var(--fs-numeral);
+  line-height: 0.9;
+  color: var(--c-cabernet);
+  flex: none;
+}
+
+.work-item__hairline {
+  flex: 1;
+  height: 1px;
+  background-color: var(--rule);
+}
+
+.work-item__meta {
+  flex: none;
+  text-align: right;
+}
+
+/* ---------- The asymmetric composition ---------- */
+.work-item__inner {
+  margin-top: clamp(1.5rem, 3vw, 2.25rem);
+  align-items: start;
+}
+
+.work-item__frame {
+  aspect-ratio: 4 / 3;
+}
+
+.work-item__project {
+  font-size: var(--fs-h3);
+}
+
+.work-item__category {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-lead);
+  color: var(--c-ink-muted);
+  margin-top: 0.35rem;
+}
+
+.work-item__description {
+  margin-top: var(--s-5);
+}
+
+.work-item__facts {
+  margin-top: var(--s-5);
+  display: grid;
+  gap: var(--s-4);
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s-4);
+}
+
+.work-item__facts dd {
+  font-size: var(--fs-small);
+  color: var(--c-ink-muted);
+  margin-top: 0.3rem;
+}
+
+/* The title doubles as the link to the case study. */
+.work-item__project-link {
+  transition: color var(--dur) var(--ease);
+}
+
+.work-item__project-link:hover,
+.work-item__project-link:focus-visible {
+  color: var(--c-cabernet);
+}
+
+/* The card's call to action. The anchor supplies the 48px touch target; the
+   rule sits on the words themselves, as it does in the hero. */
+.work-item__link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  margin-top: var(--s-4);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color var(--dur) var(--ease);
+}
+
+.work-item__link-text {
+  padding-bottom: 4px;
+  box-shadow: inset 0 -1px 0 0 var(--rule-strong);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.work-item__link:hover,
+.work-item__link:focus-visible {
+  color: var(--c-cabernet);
+}
+
+.work-item__link:hover .work-item__link-text,
+.work-item__link:focus-visible .work-item__link-text {
+  box-shadow: inset 0 -1px 0 0 var(--c-cabernet);
+}
+
+.work-item__link:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Layout variants: never the same grid twice ---------- */
+@media (min-width: 901px) {
+  /* Both columns share row 1. Without this, a variant that puts the notes
+     in an earlier column than the figure (which precedes it in the DOM)
+     gets pushed to row 2 by sparse auto-placement. */
+  .work-item__figure,
+  .work-item__notes {
+    grid-row: 1;
+  }
+
+  .work-item--wide-left .work-item__figure {
+    grid-column: 1 / span 7;
+  }
+  .work-item--wide-left .work-item__notes {
+    grid-column: 9 / -1;
+  }
+
+  .work-item--wide-right .work-item__notes {
+    grid-column: 1 / span 4;
+  }
+  .work-item--wide-right .work-item__figure {
+    grid-column: 6 / -1;
+  }
+  .work-item--wide-right .work-item__frame {
+    aspect-ratio: 3 / 2;
+  }
+
+  .work-item--inset .work-item__figure {
+    grid-column: 2 / span 7;
+  }
+  .work-item--inset .work-item__notes {
+    grid-column: 10 / -1;
+  }
+  .work-item--inset .work-item__frame {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* ---------- Tablet and below: stack, but keep the rhythm ---------- */
+@media (max-width: 900px) {
+  .work-item__figure,
+  .work-item__notes {
+    grid-column: 1 / -1;
+  }
+
+  .work-item__notes {
+    margin-top: clamp(1.5rem, 4vw, 2rem);
+  }
+
+  .work-item__frame {
+    aspect-ratio: 3 / 2;
+  }
+
+  .work-item__facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .work-item__head {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .work-item__hairline {
+    min-width: 2rem;
+  }
+
+  .work-item__meta {
+    flex: 1 0 100%;
+    text-align: left;
+  }
+
+  .work-item__facts {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Assets shown whole ----------
+   Set by `fit: 'full'` in content/projects.js. The frame gives up its fixed
+   ratio and takes the asset's own, so a wide banner or a flat-lay is neither
+   cut down by object-fit: cover nor stood on a band of invented ground.
+
+   Kept last and two classes deep on purpose: it has to outrank the per-layout
+   ratios above, and the ratios inside the media queries, which carry no extra
+   specificity of their own. */
+.work-item .work-item__frame--full {
+  aspect-ratio: auto;
+}
+
+.work-item .work-item__frame--full img {
+  height: auto;
+  object-fit: contain;
+}

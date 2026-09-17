@@ -1,0 +1,129 @@
+/* ==========================================================================
+   PROJECT HERO — the opening spread of a case study
+   ========================================================================== */
+
+.project-hero {
+  padding-top: clamp(1.5rem, 3vw, 2.75rem);
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+  scroll-margin-top: 5rem;
+}
+
+/* ---------- Publication rail ---------- */
+.project-hero__rail {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--rule-ink);
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-hero__back {
+  color: var(--c-ink);
+  transition: color var(--dur) var(--ease);
+}
+
+.project-hero__back:hover,
+.project-hero__back:focus-visible {
+  color: var(--c-cabernet);
+}
+
+.project-hero__rail-end {
+  text-align: right;
+}
+
+/* ---------- Volume marker ---------- */
+.project-hero__volume {
+  display: flex;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  color: var(--c-cabernet);
+}
+
+.project-hero__volume-label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+.project-hero__number {
+  font-family: var(--font-serif);
+  font-size: var(--fs-numeral);
+  line-height: 0.9;
+}
+
+/* ---------- Title ---------- */
+.project-hero__title {
+  font-size: var(--fs-display);
+  line-height: 0.96;
+  letter-spacing: -0.022em;
+  color: var(--c-green);
+  margin-top: clamp(0.5rem, 1.4vw, 1rem);
+}
+
+.project-hero__category {
+  color: var(--c-ink);
+  margin-top: clamp(1.25rem, 2.6vw, 1.75rem);
+  padding-top: clamp(1rem, 2vw, 1.35rem);
+  border-top: 1px solid var(--rule-ink);
+}
+
+/* ---------- Introduction ---------- */
+.project-hero__body {
+  margin-top: clamp(2rem, 4.5vw, 3.25rem);
+}
+
+.project-hero__intro {
+  grid-column: 1 / span 7;
+}
+
+.project-hero__intro .lead {
+  color: var(--c-ink);
+  max-width: 58ch;
+}
+
+/* ---------- The large plate ----------
+   `contain` rather than `cover`, so an Instagram profile screenshot, a device
+   mockup and a wide editorial composition all sit correctly without cropping.
+   The padding keeps the asset off the edges, like a plate on a page. */
+.project-hero__visual {
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.project-hero__frame {
+  aspect-ratio: 16 / 9;
+  padding: clamp(1rem, 2.6vw, 2.25rem);
+  border: 1px solid var(--rule);
+}
+
+.project-hero__frame img {
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .project-hero__intro {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 700px) {
+  .project-hero__frame {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+@media (max-width: 560px) {
+  .project-hero__rail {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+  }
+
+  .project-hero__rail-end {
+    text-align: left;
+  }
+}

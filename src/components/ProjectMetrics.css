@@ -1,0 +1,54 @@
+/* ==========================================================================
+   PROJECT METRICS — figures as a reading table, not a scoreboard
+   ========================================================================== */
+
+.project-metrics__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.project-metrics__reel-title {
+  font-size: var(--fs-h4);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule-ink);
+}
+
+/* Label left, figure right, a hairline between each — the same classified
+   listing idiom the contact section uses, kept small and quiet. */
+.project-metrics__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: clamp(0.6rem, 1.4vw, 0.85rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-metrics__value {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4);
+  line-height: 1.2;
+  color: var(--c-ink);
+  text-align: right;
+}
+
+/* The cautious reading of the figures. */
+.project-metrics__note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--c-ink-muted);
+  max-width: 64ch;
+  margin-top: clamp(2.25rem, 5vw, 3.5rem);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--rule);
+}
+
+@media (max-width: 700px) {
+  .project-metrics__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

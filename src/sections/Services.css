@@ -1,0 +1,97 @@
+.services__head {
+  align-items: end;
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  border-bottom: 1px solid var(--rule-ink);
+}
+
+.services__kicker {
+  grid-column: 1 / span 4;
+}
+
+.services__title {
+  grid-column: 6 / -1;
+  font-size: var(--fs-h2);
+}
+
+/* ---------- The index of services ---------- */
+.service {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 4fr) minmax(0, 5fr);
+  gap: var(--grid-gap);
+  align-items: start;
+  padding-block: clamp(1.75rem, 3.6vw, 2.75rem);
+  border-bottom: 1px solid var(--rule);
+}
+
+.service__number {
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  letter-spacing: 0.08em;
+  color: var(--c-cabernet);
+  line-height: 1.6;
+  padding-top: 0.1em;
+}
+
+.service__title {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.014em;
+}
+
+.service__description {
+  color: var(--c-ink-muted);
+  max-width: 42ch;
+}
+
+/* ---------- Industries: a quiet heritage-club footer to the section ---------- */
+.services__industries {
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+  text-align: center;
+}
+
+.services__industry-list {
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.15vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  text-indent: 0.24em;
+  color: var(--c-green);
+  line-height: 1.9;
+}
+
+.services__industry-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-lead);
+  color: var(--c-ink-muted);
+  margin-top: var(--s-4);
+  max-width: 34ch;
+  margin-inline: auto;
+}
+
+@media (max-width: 900px) {
+  .services__kicker,
+  .services__title {
+    grid-column: 1 / -1;
+  }
+
+  .services__title {
+    margin-top: var(--s-3);
+  }
+
+  .service {
+    grid-template-columns: 2.75rem minmax(0, 1fr);
+    row-gap: var(--s-3);
+  }
+
+  .service__description {
+    grid-column: 2 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .services__industry-list {
+    letter-spacing: 0.16em;
+    text-indent: 0.16em;
+  }
+}

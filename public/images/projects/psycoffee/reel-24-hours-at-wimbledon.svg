@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1600" width="900" height="1600" role="presentation">
+
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <pattern id="dots" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.2" fill="rgba(31,31,28,0.24)"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="1600" fill="#EDE8DE"/>
+  <rect x="0" y="0" width="900" height="1600" fill="url(#dots)" opacity="0.7"/>
+  <rect x="286" y="0" width="328" height="1600" fill="#173F35"/>
+  <rect x="446" y="0" width="8" height="1600" fill="#EDE8DE" opacity="0.7"/>
+  <rect x="0" y="1096" width="900" height="1" fill="#1F1F1C" opacity="0.42"/>
+  <circle cx="450" cy="1096" r="26" fill="#540212"/>
+
+  <text x="64" y="120" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="500"
+        letter-spacing="5.2" fill="#540212">PLACEHOLDER</text>
+  <text x="64" y="1516" font-family="Georgia, 'Times New Roman', serif" font-size="46"
+        fill="#1F1F1C">24 Hours at Wimbledon</text>
+
+  <rect width="900" height="1600" filter="url(#grain)" opacity="0.22" style="mix-blend-mode:multiply"/>
+</svg>

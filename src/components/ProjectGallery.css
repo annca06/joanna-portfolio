@@ -1,0 +1,83 @@
+/* ==========================================================================
+   PROJECT GALLERY — portrait content, hung off-register
+   ========================================================================== */
+
+/* Slightly unequal columns and staggered baselines, so six portrait frames
+   read as a composition rather than a row of identical cards. */
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1.05fr 0.9fr 1.05fr;
+  gap: var(--grid-gap) clamp(1.25rem, 3vw, 3rem);
+  align-items: start;
+}
+
+.project-gallery__item:nth-child(3n + 2) {
+  margin-top: clamp(1.5rem, 5vw, 4.5rem);
+}
+
+.project-gallery__item:nth-child(3n) {
+  margin-top: clamp(0.75rem, 2.5vw, 2rem);
+}
+
+.project-gallery__frame {
+  aspect-ratio: 9 / 16;
+  border: 1px solid var(--rule);
+}
+
+/* Never crop the asset — see the note in ProjectHero.css. */
+.project-gallery__frame img {
+  object-fit: contain;
+}
+
+.project-gallery__caption {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule);
+}
+
+.project-gallery__numeral {
+  font-family: var(--font-serif);
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  color: var(--c-cabernet);
+  flex: none;
+}
+
+.project-gallery__title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-body);
+  line-height: 1.35;
+  color: var(--c-ink);
+  text-wrap: pretty;
+}
+
+/* ---------- Tablet: two columns, stagger kept on the second ---------- */
+@media (max-width: 900px) {
+  .project-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-gallery__item:nth-child(3n + 2),
+  .project-gallery__item:nth-child(3n) {
+    margin-top: 0;
+  }
+
+  .project-gallery__item:nth-child(2n) {
+    margin-top: clamp(1.5rem, 5vw, 3.5rem);
+  }
+}
+
+/* ---------- Mobile: a single column, flush ---------- */
+@media (max-width: 560px) {
+  .project-gallery {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 3rem);
+  }
+
+  .project-gallery__item:nth-child(2n) {
+    margin-top: 0;
+  }
+}

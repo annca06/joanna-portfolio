@@ -1,0 +1,274 @@
+/* ==========================================================================
+   VOL. 03 — THE PSYCOFFEE
+   Only the compositions unique to this case study. Everything structural
+   comes from the Project* components and the shared tokens.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   02 — THE OBJECTIVE
+   Three short columns beneath the opening statement.
+   -------------------------------------------------------------------------- */
+.psycoffee__objectives {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.psycoffee__objective {
+  border-top: 1px solid var(--rule-ink);
+  padding-top: 0.9rem;
+}
+
+.psycoffee__objective-number {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  letter-spacing: 0.08em;
+  color: var(--c-cabernet);
+}
+
+.psycoffee__objective-title {
+  font-size: var(--fs-h4);
+  margin-top: var(--s-4);
+}
+
+.psycoffee__objective-copy {
+  color: var(--c-ink-muted);
+  margin-top: var(--s-3);
+  max-width: 34ch;
+}
+
+/* --------------------------------------------------------------------------
+   04 — BRAND DIRECTION
+   A type specimen, not a set of cards: eight phrases under eight hairlines,
+   alternating roman and italic so the grid reads as a composition.
+   -------------------------------------------------------------------------- */
+.psycoffee__traits {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem) var(--grid-gap);
+}
+
+.psycoffee__trait {
+  font-family: var(--font-serif);
+  font-size: clamp(1.125rem, 1.9vw, 1.5rem);
+  line-height: 1.25;
+  color: var(--c-on-green);
+  border-top: 1px solid var(--rule-on-green-strong);
+  padding-top: 0.9rem;
+  padding-bottom: clamp(1.25rem, 3vw, 2.5rem);
+  text-wrap: pretty;
+}
+
+.psycoffee__trait:nth-child(even) {
+  font-style: italic;
+}
+
+.psycoffee__traits-note {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--c-on-green-muted);
+  max-width: 64ch;
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--rule-on-green);
+}
+
+/* --------------------------------------------------------------------------
+   05 — CONTENT PILLARS
+   Three chapters, each opened by a large roman numeral.
+   -------------------------------------------------------------------------- */
+.psycoffee__pillar {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: var(--grid-gap);
+  align-items: start;
+  border-top: 1px solid var(--rule-ink);
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+}
+
+.psycoffee__pillar:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.psycoffee__pillar-numeral {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 0.9;
+  letter-spacing: 0.04em;
+  color: var(--c-cabernet);
+}
+
+.psycoffee__pillar-title {
+  font-size: var(--fs-h3);
+}
+
+.psycoffee__pillar-copy {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--c-ink-muted);
+  max-width: 56ch;
+  margin-top: var(--s-4);
+}
+
+.psycoffee__pillar-examples {
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--c-ink-faint);
+  max-width: 56ch;
+  margin-top: var(--s-4);
+}
+
+/* --------------------------------------------------------------------------
+   06 — MY ROLE
+   Six responsibilities, set large and given room.
+   -------------------------------------------------------------------------- */
+.psycoffee__role {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.psycoffee__role-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  border-top: 1px solid var(--rule);
+  padding-block: clamp(1rem, 2.4vw, 1.6rem);
+}
+
+/* The first item in each column carries the heavier opening rule. */
+.psycoffee__role-item:nth-child(1),
+.psycoffee__role-item:nth-child(2) {
+  border-top-color: var(--rule-ink);
+}
+
+.psycoffee__role-number {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-meta);
+  color: var(--c-cabernet);
+  flex: none;
+  /* Roman numerals are not all one width, so the column is held open to the
+     widest of them and the titles keep a straight left edge. */
+  min-width: 3ch;
+}
+
+.psycoffee__role-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  line-height: 1.15;
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   09 — THE TAKEAWAY
+   A serif statement, with the second paragraph set quietly beside it.
+   -------------------------------------------------------------------------- */
+.psycoffee__takeaway {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  max-width: none;
+}
+
+.psycoffee__takeaway p:first-child {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  line-height: 1.22;
+  color: var(--c-ink);
+}
+
+.psycoffee__takeaway p + p {
+  margin-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   PROJECT DETAILS — the colophon
+   -------------------------------------------------------------------------- */
+.psycoffee__details {
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.psycoffee__details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.25rem) var(--grid-gap);
+}
+
+.psycoffee__detail {
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+}
+
+.psycoffee__detail-value {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  margin-top: 0.35rem;
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .psycoffee__objectives {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .psycoffee__objective-copy {
+    max-width: 46ch;
+  }
+
+  .psycoffee__traits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .psycoffee__pillar {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+  }
+
+  .psycoffee__takeaway {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .psycoffee__takeaway p + p {
+    margin-top: var(--s-5);
+  }
+
+  .psycoffee__details-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .psycoffee__role {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .psycoffee__role-item:nth-child(2) {
+    border-top-color: var(--rule);
+  }
+}
+
+@media (max-width: 560px) {
+  .psycoffee__traits {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .psycoffee__pillar {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s-4);
+  }
+
+  .psycoffee__details-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

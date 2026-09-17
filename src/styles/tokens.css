@@ -1,0 +1,96 @@
+/* ==========================================================================
+   DESIGN TOKENS
+   The single source of truth for colour, type, spacing and rules.
+   Change a value here and it updates everywhere on the site.
+   ========================================================================== */
+
+:root {
+  /* ---------- COLOUR ------------------------------------------------------
+     A restrained heritage-club palette. Cabernet is the accent and should
+     stay at roughly 5–10% of the interface — rules, numerals, script accents.
+  */
+  --c-green: #173f35; /* Deep tennis green — primary */
+  --c-green-deep: #102e27; /* Pressed / darker state */
+  --c-ivory: #f7f4ef; /* Warm ivory — main background */
+  --c-ivory-panel: #f1ede5; /* Very subtle panel tint */
+  --c-ink: #1f1f1c; /* Charcoal — text */
+  --c-ink-muted: #56564f; /* Secondary text — 6.4:1 on ivory */
+  --c-ink-faint: #6b6b62; /* Metadata — 4.8:1 on ivory */
+  --c-cabernet: #540212; /* Accent — use sparingly */
+
+  /* Text colours for use on the deep green sections */
+  --c-on-green: #f7f4ef;
+  --c-on-green-muted: #bfbdb4; /* 6.2:1 on green */
+
+  /* Hairlines. Editorial layouts live or die by their rules. */
+  --rule: rgba(31, 31, 28, 0.18);
+  --rule-strong: rgba(31, 31, 28, 0.42);
+  --rule-ink: rgba(31, 31, 28, 0.85);
+  --rule-on-green: rgba(247, 244, 239, 0.24);
+  --rule-on-green-strong: rgba(247, 244, 239, 0.5);
+
+  /* ---------- TYPEFACES ---------------------------------------------------
+     Three roles only:
+       serif  — headlines and section titles (editorial voice)
+       sans   — body, navigation, metadata, buttons, labels
+       script — rare personal accents. Never body text.
+  */
+  --font-serif: 'Newsreader', 'Times New Roman', Times, Georgia, serif;
+  --font-sans: 'Archivo', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-script: 'Mrs Saint Delafield', 'Segoe Script', 'Brush Script MT', cursive;
+
+  /* ---------- TYPE SCALE --------------------------------------------------
+     Fluid, so mobile keeps the same hierarchy rather than flattening out.
+  */
+  --fs-masthead: clamp(3.1rem, 19vw, 15rem);
+  --fs-display: clamp(2.85rem, 9.5vw, 8rem);
+  --fs-h2: clamp(2.1rem, 5.4vw, 4.25rem);
+  --fs-h3: clamp(1.5rem, 2.9vw, 2.3rem);
+  --fs-h4: clamp(1.2rem, 1.8vw, 1.5rem);
+  --fs-numeral: clamp(2.25rem, 4.4vw, 3.5rem);
+  --fs-lead: clamp(1.0625rem, 1.35vw, 1.3125rem);
+  --fs-body: clamp(1rem, 1.05vw, 1.0625rem);
+  --fs-small: 0.875rem;
+  --fs-label: 0.6875rem; /* letterspaced caps — the newspaper "kicker" */
+
+  --fs-script-lg: clamp(2.4rem, 6vw, 4.5rem);
+  --fs-script-md: clamp(1.9rem, 4vw, 2.9rem);
+
+  --lh-tight: 1.02;
+  --lh-head: 1.1;
+  --lh-body: 1.65;
+
+  --ls-label: 0.2em; /* wide tracking for small caps labels */
+  --ls-meta: 0.12em;
+
+  /* ---------- SPACING -----------------------------------------------------
+     A single scale. Sections use --section-y for vertical rhythm.
+  */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+
+  --section-y: clamp(4.5rem, 10vw, 9rem);
+
+  /* ---------- LAYOUT ------------------------------------------------------ */
+  --page-max: 1440px;
+  --gutter: clamp(1.25rem, 5vw, 5rem);
+  --grid-gap: clamp(1.25rem, 2.2vw, 2.25rem);
+  --measure: 34ch; /* comfortable reading width for body copy */
+
+  /* Minimal radius only. No pills, no soft cards. */
+  --radius: 1px;
+
+  /* ---------- MOTION ------------------------------------------------------ */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-fast: 220ms;
+  --dur: 420ms;
+  --dur-slow: 800ms;
+}

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200" width="900" height="1200" role="presentation">
+
+  <defs>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <pattern id="dots" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="3.5" cy="3.5" r="1.15" fill="rgba(247,244,239,0.5)"/>
+    </pattern>
+  </defs>
+
+  <rect width="900" height="1200" fill="#173F35"/>
+  <path d="M900 210 A 470 470 0 0 0 108 552 L 108 1200 L 900 1200 Z" fill="#EDE8DE" opacity="0.94"/>
+  <rect x="108" y="880" width="792" height="150" fill="#1F1F1C" opacity="0.9"/>
+  <rect x="108" y="552" width="792" height="328" fill="url(#dots)" opacity="0.5"/>
+  <rect x="0" y="0" width="108" height="1200" fill="#540212" opacity="0.9"/>
+  <rect x="108" y="1030" width="792" height="170" fill="#EDE8DE"/>
+<rect width="900" height="1200" filter="url(#grain)" opacity="0.26" style="mix-blend-mode:multiply"/>
+</svg>

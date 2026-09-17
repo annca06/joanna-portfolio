@@ -1,0 +1,398 @@
+/* ==========================================================================
+   BASE — reset, element defaults, shared editorial primitives
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-ivory);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* belt and braces against horizontal overflow */
+}
+
+img,
+svg,
+picture {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  font-family: var(--font-serif);
+  line-height: var(--lh-head);
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+::selection {
+  background: var(--c-green);
+  color: var(--c-ivory);
+}
+
+/* --------------------------------------------------------------------------
+   FOCUS — always visible, never removed.
+   -------------------------------------------------------------------------- */
+:focus-visible {
+  outline: 2px solid var(--c-cabernet);
+  outline-offset: 3px;
+}
+
+.on-green :focus-visible {
+  outline-color: var(--c-ivory);
+}
+
+/* --------------------------------------------------------------------------
+   LAYOUT PRIMITIVES
+   -------------------------------------------------------------------------- */
+.container {
+  width: min(100% - (var(--gutter) * 2), var(--page-max));
+  margin-inline: auto;
+}
+
+/* 12-column editorial grid. Collapses to a single column below 900px;
+   individual sections re-map their own spans at that breakpoint. */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--grid-gap);
+}
+
+.section {
+  padding-block: var(--section-y);
+  scroll-margin-top: 5rem;
+}
+
+.section--green {
+  background-color: var(--c-green);
+  color: var(--c-on-green);
+}
+
+/* --------------------------------------------------------------------------
+   EDITORIAL TYPE PRIMITIVES
+   -------------------------------------------------------------------------- */
+
+/* The small tracked cap line that sits above a headline — a newspaper kicker */
+.label {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+  line-height: 1.4;
+}
+
+.label--accent {
+  color: var(--c-cabernet);
+}
+
+.section--green .label {
+  color: var(--c-on-green-muted);
+}
+
+/* Metadata line: WEB DESIGN / CONTENT / 2026 */
+.meta {
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+  line-height: 1.7;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--c-ink-muted);
+}
+
+.section--green .lead {
+  color: var(--c-on-green-muted);
+}
+
+.body-text {
+  color: var(--c-ink-muted);
+  max-width: 46ch;
+}
+
+.script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+/* A label with a rule running off to the side — used to open sections */
+.kicker {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.kicker::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.section--green .kicker::after {
+  background: var(--rule-on-green);
+}
+
+/* --------------------------------------------------------------------------
+   LINKS & BUTTONS
+   -------------------------------------------------------------------------- */
+
+/* Underline that draws itself in from the left on hover */
+.link-underline {
+  display: inline;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  padding-bottom: 2px;
+  transition: background-size var(--dur) var(--ease);
+}
+
+.link-underline:hover,
+.link-underline:focus-visible {
+  background-size: 100% 1px;
+}
+
+/* A permanently underlined link where the underline lifts on hover */
+.link-standing {
+  display: inline;
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 2px;
+  transition: border-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+.link-standing:hover,
+.link-standing:focus-visible {
+  border-bottom-color: var(--c-cabernet);
+  color: var(--c-cabernet);
+}
+
+.section--green .link-standing {
+  border-bottom-color: var(--rule-on-green-strong);
+}
+
+.section--green .link-standing:hover,
+.section--green .link-standing:focus-visible {
+  border-bottom-color: var(--c-ivory);
+  color: var(--c-ivory);
+}
+
+/* Rectangular editorial buttons. No pills, no shadows, no glow. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  min-height: 48px; /* accessible touch target */
+  padding: 0.9rem 1.5rem;
+  border-radius: var(--radius);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.btn--primary {
+  background-color: var(--c-green);
+  color: var(--c-ivory);
+  border: 1px solid var(--c-green);
+}
+
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background-color: var(--c-green-deep);
+  border-color: var(--c-green-deep);
+}
+
+.btn--ghost {
+  background-color: transparent;
+  color: var(--c-ink);
+  border: 1px solid var(--rule-strong);
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  border-color: var(--c-cabernet);
+  color: var(--c-cabernet);
+}
+
+.btn__arrow {
+  transition: transform var(--dur) var(--ease);
+}
+
+.btn:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   IMAGERY — rectangular, minimal radius, restrained hover zoom
+   -------------------------------------------------------------------------- */
+.frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--c-ivory-panel);
+  border-radius: var(--radius);
+}
+
+.frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.1s var(--ease);
+}
+
+.frame--zoom:hover img {
+  transform: scale(1.03);
+}
+
+.caption {
+  margin-top: var(--s-3);
+  font-family: var(--font-sans);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--c-ink-faint);
+}
+
+.section--green .caption {
+  color: var(--c-on-green-muted);
+}
+
+/* --------------------------------------------------------------------------
+   SCROLL REVEAL — gentle, once, and entirely optional
+   -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity var(--dur-slow) var(--ease), transform var(--dur-slow) var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   ACCESSIBILITY HELPERS
+   -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  background: var(--c-green);
+  color: var(--c-ivory);
+  padding: 0.75rem 1.25rem;
+  font-size: var(--fs-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: transform var(--dur) var(--ease);
+}
+
+.skip-link:focus {
+  transform: translate(-50%, 0);
+}
+
+/* --------------------------------------------------------------------------
+   REDUCED MOTION — the site is designed to stand up with no motion at all
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .frame--zoom:hover img {
+    transform: none;
+  }
+}
