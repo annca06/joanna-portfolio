@@ -141,8 +141,17 @@
     margin-top: clamp(2rem, 5vw, 3rem);
   }
 
+  /* On a phone the portrait is shown whole: the frame takes the photograph's
+     own proportions rather than a landscape crop, so nothing is cut off and
+     no ground is added around it. The image rule overrides .frame img in
+     base.css, which fills and crops by default. */
   .note__frame {
-    aspect-ratio: 3 / 2;
+    aspect-ratio: auto;
+  }
+
+  .note__frame img {
+    height: auto;
+    object-fit: contain;
   }
 }
 
