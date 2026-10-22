@@ -67,6 +67,40 @@
   aspect-ratio: 4 / 3;
 }
 
+/* ---------- A plate with a second view against it ----------
+   Set by `inset` in content/projects.js: a phone standing at the corner of a
+   desktop screenshot. The phone is hung on the plate rather than placed in a
+   frame of its own, and the plate carries the extra room underneath so the
+   overhang never reaches the caption. */
+.work-item__plate {
+  position: relative;
+}
+
+.work-item__figure--inset .work-item__plate {
+  margin-bottom: clamp(1.75rem, 4.5vw, 3.25rem);
+}
+
+/* A screenshot reads as a screen, so it is given a hairline edge. A
+   photograph is left to sit on the page unframed, as it always has. */
+.work-item__figure--inset .work-item__frame {
+  border: 1px solid var(--rule);
+}
+
+/* The ivory padding is a mount, not a shadow: the phone stands clear of the
+   screenshot behind it without anything soft or raised being introduced. */
+.work-item__inset {
+  position: absolute;
+  right: 1%;
+  bottom: -14%;
+  width: 18%;
+  max-width: 165px;
+  height: auto;
+  padding: 4px;
+  background-color: var(--c-ivory);
+  border: 1px solid var(--rule-strong);
+  border-radius: var(--radius);
+}
+
 .work-item__project {
   font-size: var(--fs-h3);
 }
@@ -107,14 +141,21 @@
   color: var(--c-cabernet);
 }
 
-/* The card's call to action. The anchor supplies the 48px touch target; the
-   rule sits on the words themselves, as it does in the hero. */
+/* The card's calls to action. Each anchor supplies the 48px touch target;
+   the rule sits on the words themselves, as it does in the hero. */
+.work-item__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 var(--s-6);
+  margin-top: var(--s-4);
+}
+
 .work-item__link {
   display: inline-flex;
   align-items: center;
   gap: var(--s-2);
   min-height: 48px;
-  margin-top: var(--s-4);
   font-family: var(--font-sans);
   font-size: var(--fs-small);
   font-weight: 500;
@@ -142,6 +183,10 @@
 
 .work-item__link:hover .btn__arrow {
   transform: translateX(4px);
+}
+
+.work-item__link--external:hover .btn__arrow {
+  transform: translate(3px, -3px);
 }
 
 /* ---------- Layout variants: never the same grid twice ---------- */
@@ -206,6 +251,17 @@
   .work-item__head {
     flex-wrap: wrap;
     row-gap: 0.5rem;
+  }
+
+  /* The plate is narrow here, so the phone takes a slightly larger share of
+     it to stay legible — and the links stack rather than crowd. */
+  .work-item__inset {
+    width: 24%;
+    right: 0;
+  }
+
+  .work-item__links {
+    gap: 0 var(--s-5);
   }
 
   .work-item__hairline {

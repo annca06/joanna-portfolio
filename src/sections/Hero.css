@@ -126,7 +126,7 @@
 .hero__est {
   display: flex;
   align-items: center;
-  gap: var(--s-4);
+  gap: clamp(1rem, 2.4vw, 1.5rem);
   margin-top: clamp(2.5rem, 6vw, 4.5rem);
   color: var(--c-green);
 }
@@ -150,20 +150,29 @@
 /* Holding a mark rather than letterforms. The tracking and indent exist to
    space two capitals evenly and would otherwise read as a gap to the right
    of the image, and the box needs to centre on the mark instead of on a
-   line of text. */
+   line of text.
+
+   The padding sets how far the two hairlines stand above and below the mark:
+   a shade taller than the mark itself, so they frame it rather than fence
+   it in. It is deliberately a fixed value — a proportional one would grow
+   with the mark and leave the composition top-heavy. */
 .hero__cipher--mark {
   display: inline-flex;
   align-items: center;
   letter-spacing: 0;
   text-indent: 0;
-  padding-block: 0.3rem;
+  padding-block: 0.5rem;
+  padding-inline: clamp(1rem, 2.2vw, 1.4rem);
 }
 
 /* Released from the global `max-width: 100%` on images so the mark is sized
-   by its height alone and keeps its proportions. */
+   by its height alone and keeps its proportions. The height comes from
+   Hero.jsx as a custom property; the fallbacks keep the mark at a sensible
+   size if that style is ever dropped. */
 .hero__cipher-image {
   width: auto;
   max-width: none;
+  height: var(--cipher-h, 78px);
 }
 
 .hero__figure {
@@ -223,5 +232,15 @@
 
   .hero__actions .btn {
     flex: 1 1 100%;
+  }
+
+  /* The mark steps down so that EST., the two hairlines and the date still
+     sit on one line inside the narrowest gutter. */
+  .hero__cipher-image {
+    height: var(--cipher-h-small, 58px);
+  }
+
+  .hero__cipher--mark {
+    padding-inline: 0.9rem;
   }
 }

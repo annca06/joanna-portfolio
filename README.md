@@ -10,15 +10,11 @@ a script face used sparingly, like jewellery.
 
 ## Requirements
 
-**Node.js 20.19+ or 22.12+** (Vite 7 requires this).
+**Node.js 20.19+ or 22.12+** (Vite 7 requires this). Check with:
 
-> Node is not currently installed on this machine. Download it from
-> <https://nodejs.org> (take the LTS build), then reopen your terminal so
-> `node` is on your PATH. Check with:
->
-> ```bash
-> node --version
-> ```
+```bash
+node --version
+```
 
 ## Getting started
 
@@ -39,19 +35,6 @@ npm run build
 ```
 
 The finished site lands in `dist/`.
-
-### Previewing without Node
-
-If Node isn't installed yet, there is a fallback that uses only PowerShell:
-
-```bash
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/serve.ps1 -Port 5173
-```
-
-That serves `preview.html` — a static copy of the page that **links the real
-stylesheets**, so what you see is the actual design. It is a stopgap: the React
-components in `src/` are the real site. Once Node is installed you can delete
-both `preview.html` and `tools/`.
 
 ---
 

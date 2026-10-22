@@ -32,19 +32,39 @@ export default function SelectedWork() {
                 </div>
 
                 <div className="work-item__inner grid-12">
-                  <figure className="work-item__figure">
-                    <div
-                      className={`frame frame--zoom work-item__frame${
-                        project.fit === 'full' ? ' work-item__frame--full' : ''
-                      }`}
-                    >
-                      <img
-                        src={project.image}
-                        alt={project.alt}
-                        loading="lazy"
-                        width="1200"
-                        height="900"
-                      />
+                  <figure
+                    className={`work-item__figure${
+                      project.inset ? ' work-item__figure--inset' : ''
+                    }`}
+                  >
+                    <div className="work-item__plate">
+                      <div
+                        className={`frame frame--zoom work-item__frame${
+                          project.fit === 'full' ? ' work-item__frame--full' : ''
+                        }`}
+                      >
+                        <img
+                          src={project.image}
+                          alt={project.alt}
+                          loading="lazy"
+                          width="1200"
+                          height="900"
+                        />
+                      </div>
+
+                      {/* A phone standing against the corner of the plate.
+                          Decorative framing, so it is hung from the plate
+                          rather than given a frame of its own. */}
+                      {project.inset && (
+                        <img
+                          className="work-item__inset"
+                          src={project.inset.src}
+                          alt={project.inset.alt}
+                          loading="lazy"
+                          width="780"
+                          height="1278"
+                        />
+                      )}
                     </div>
                     {project.caption && (
                       <figcaption className="caption">{project.caption}</figcaption>
@@ -66,40 +86,50 @@ export default function SelectedWork() {
                       <p className="work-item__category">{project.category}</p>
                     )}
 
-                    {project.description && (
-                      <p className="body-text work-item__description">
-                        {project.description}
+                    {project.description.map((paragraph) => (
+                      <p className="body-text work-item__description" key={paragraph}>
+                        {paragraph}
                       </p>
-                    )}
+                    ))}
 
-                    {(project.role || project.services) && (
+                    {project.facts.length > 0 && (
                       <dl className="work-item__facts">
-                        {project.role && (
-                          <div>
-                            <dt className="label">Role</dt>
-                            <dd>{project.role}</dd>
+                        {project.facts.map((fact) => (
+                          <div key={fact.label}>
+                            <dt className="label">{fact.label}</dt>
+                            <dd>{fact.value}</dd>
                           </div>
-                        )}
-                        {project.services && (
-                          <div>
-                            <dt className="label">Services</dt>
-                            <dd>{project.services}</dd>
-                          </div>
-                        )}
+                        ))}
                       </dl>
                     )}
 
-                    {/* Rendered only once a real case-study URL exists. */}
-                    {project.href && (
-                      <a className="work-item__link" href={project.href}>
-                        <span className="work-item__link-text">
-                          {project.cta || 'View Project'}
-                        </span>
-                        <span className="btn__arrow" aria-hidden="true">
-                          &rarr;
-                        </span>
-                        <span className="visually-hidden"> — {project.title}</span>
-                      </a>
+                    {/* Rendered only once a real destination exists, so the
+                        site never carries a dead link. */}
+                    {project.links.length > 0 && (
+                      <p className="work-item__links">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            className={`work-item__link${
+                              link.external ? ' work-item__link--external' : ''
+                            }`}
+                            href={link.href}
+                            {...(link.external
+                              ? { target: '_blank', rel: 'noopener noreferrer' }
+                              : {})}
+                          >
+                            <span className="work-item__link-text">{link.label}</span>
+                            <span className="btn__arrow" aria-hidden="true">
+                              {link.external ? '↗' : '→'}
+                            </span>
+                            <span className="visually-hidden">
+                              {' '}
+                              — {project.title}
+                              {link.external ? ' (opens in a new tab)' : ''}
+                            </span>
+                          </a>
+                        ))}
+                      </p>
                     )}
                   </div>
                 </div>

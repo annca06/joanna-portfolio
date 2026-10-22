@@ -44,9 +44,9 @@ export default function PsyCoffee() {
         Skip to content
       </a>
 
-      {/* base="/" so the shared nav points back at the homepage's anchors
-          rather than looking for them on this page. */}
-      <Nav base="/" />
+      {/* base="/joanna-portfolio/" so the shared nav points back at the
+          homepage's anchors rather than looking for them on this page. */}
+      <Nav base="/joanna-portfolio/" />
 
       <main id="main" className="psycoffee">
         <ProjectHero
