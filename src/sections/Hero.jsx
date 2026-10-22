@@ -13,7 +13,7 @@ const letters = site.name.toUpperCase().split('');
    │                                                                    │
    │  1. Put the file in `public/`   →  public/logo.svg                 │
    │  2. Set CIPHER_SRC below        →  const CIPHER_SRC = '/joanna-portfolio/logo.svg'  │
-   │  3. Adjust CIPHER_HEIGHT to taste                                  │
+   │  3. Adjust the two heights below to taste                          │
    │                                                                    │
    │  While CIPHER_SRC is an empty string the typeset JO monogram is    │
    │  used, so the line never shows a gap or a broken image.            │
@@ -23,8 +23,13 @@ const letters = site.name.toUpperCase().split('');
    in components/Brand.jsx.
    ========================================================================== */
 const CIPHER_SRC = '/joanna-portfolio/logo.svg';
-const CIPHER_HEIGHT = 40; // px — the one number to change if the mark reads
-//                          too large or too small between the hairlines.
+
+/* The two numbers to change if the mark reads too large or too small between
+   the hairlines. They are handed to the CSS rather than set on the image, so
+   the mark can step down on a narrow screen instead of holding one height and
+   crowding the line. */
+const CIPHER_HEIGHT = 78; // px — desktop and tablet
+const CIPHER_HEIGHT_SMALL = 58; // px — 560px and below
 
 export default function Hero() {
   return (
@@ -74,16 +79,17 @@ export default function Hero() {
             {/* Heritage line. The cipher sits quietly between two hairlines
                 beside the date — a mark if one is set, otherwise the
                 typeset monogram. */}
-            <p className="hero__est">
+            <p
+              className="hero__est"
+              style={{
+                '--cipher-h': `${CIPHER_HEIGHT}px`,
+                '--cipher-h-small': `${CIPHER_HEIGHT_SMALL}px`,
+              }}
+            >
               <span className="label">Est.</span>
               <span className={`hero__cipher${CIPHER_SRC ? ' hero__cipher--mark' : ''}`}>
                 {CIPHER_SRC ? (
-                  <img
-                    className="hero__cipher-image"
-                    src={CIPHER_SRC}
-                    alt={site.name}
-                    style={{ height: `${CIPHER_HEIGHT}px` }}
-                  />
+                  <img className="hero__cipher-image" src={CIPHER_SRC} alt={site.name} />
                 ) : (
                   'JO'
                 )}

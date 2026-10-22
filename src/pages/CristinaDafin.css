@@ -1,0 +1,309 @@
+/* ==========================================================================
+   VOL. 01 — CRISTINA DAFIN
+   Only the compositions unique to this case study. Everything structural
+   comes from the Project* components and the shared tokens.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   02 — THE APPROACH
+   Five steps, each opened by a small roman numeral, read as a running order
+   rather than as a set of cards.
+   -------------------------------------------------------------------------- */
+.cristina__approach {
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.cristina__step {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: var(--grid-gap);
+  align-items: baseline;
+  border-top: 1px solid var(--rule-ink);
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+}
+
+.cristina__step:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.cristina__step-number {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--c-cabernet);
+}
+
+.cristina__step-title {
+  font-size: var(--fs-h4);
+}
+
+.cristina__step-copy {
+  font-size: var(--fs-lead);
+  line-height: 1.6;
+  color: var(--c-ink-muted);
+  max-width: 58ch;
+  margin-top: var(--s-3);
+}
+
+/* --------------------------------------------------------------------------
+   03 — THE DIGITAL EXPERIENCE
+   The published pages, hung two to a line and off-register. Each plate keeps
+   the proportions of the screenshot inside it, so a phone and a page sit on
+   the same spread without either being cropped or stretched.
+   -------------------------------------------------------------------------- */
+.cristina__plates {
+  display: grid;
+  grid-template-columns: 0.82fr 1.18fr;
+  gap: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  align-items: start;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+/* The right-hand column hangs a little lower, so the spread never reads as
+   two tidy rows. */
+.cristina__plate:nth-child(2n) {
+  margin-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.cristina__plate-frame {
+  border: 1px solid var(--rule);
+}
+
+/* The frame takes the screenshot's own proportions — nothing is cropped and
+   no ground is invented around it. */
+.cristina__plate-frame img {
+  height: auto;
+  object-fit: contain;
+}
+
+.cristina__plate-caption {
+  display: grid;
+  grid-template-columns: 1.75rem minmax(0, 1fr);
+  column-gap: var(--s-3);
+  margin-top: var(--s-3);
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--rule);
+}
+
+.cristina__plate-numeral {
+  grid-row: 1 / span 2;
+  font-family: var(--font-serif);
+  font-size: var(--fs-label);
+  letter-spacing: 0.08em;
+  color: var(--c-cabernet);
+  line-height: 1.6;
+}
+
+.cristina__plate-title {
+  font-family: var(--font-serif);
+  font-size: var(--fs-body);
+  line-height: 1.35;
+  color: var(--c-ink);
+  text-wrap: pretty;
+}
+
+.cristina__plate-note {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--c-ink-faint);
+  margin-top: 0.2rem;
+  text-wrap: pretty;
+}
+
+/* --------------------------------------------------------------------------
+   04 — BEHIND THE SCENES
+   Three services on the deep green ground: what each one is, and what it was
+   set up to do. Configuration, described plainly.
+   -------------------------------------------------------------------------- */
+.cristina__stack {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.cristina__tool {
+  border-top: 1px solid var(--rule-on-green-strong);
+  padding-top: 0.9rem;
+}
+
+.cristina__tool-numeral {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.0625rem;
+  letter-spacing: 0.08em;
+  color: var(--c-on-green-muted);
+}
+
+.cristina__tool-name {
+  font-size: var(--fs-h3);
+  margin-top: var(--s-4);
+}
+
+.cristina__tool-role {
+  margin-top: 0.35rem;
+}
+
+.cristina__tool-copy {
+  color: var(--c-on-green-muted);
+  margin-top: var(--s-4);
+  max-width: 36ch;
+}
+
+.cristina__stack-note {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  color: var(--c-on-green-muted);
+  max-width: 64ch;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: var(--s-5);
+  border-top: 1px solid var(--rule-on-green);
+}
+
+/* --------------------------------------------------------------------------
+   05 — THE FINAL RESULT
+   A serif statement, with the closing note and the outbound link set quietly
+   beside it.
+   -------------------------------------------------------------------------- */
+.cristina__result {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+}
+
+.cristina__result-statement {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  line-height: 1.22;
+  color: var(--c-ink);
+  text-wrap: pretty;
+}
+
+.cristina__result-note {
+  font-size: var(--fs-lead);
+  line-height: 1.62;
+  color: var(--c-ink-muted);
+}
+
+/* The anchor supplies the 48px touch target; the rule sits on the words
+   themselves, as it does everywhere else on the site. */
+.cristina__result-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 48px;
+  margin-top: var(--s-5);
+  font-family: var(--font-sans);
+  font-size: var(--fs-small);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: color var(--dur) var(--ease);
+}
+
+.cristina__result-link-text {
+  padding-bottom: 4px;
+  box-shadow: inset 0 -1px 0 0 var(--rule-strong);
+  transition: box-shadow var(--dur) var(--ease);
+}
+
+.cristina__result-link:hover,
+.cristina__result-link:focus-visible {
+  color: var(--c-cabernet);
+}
+
+.cristina__result-link:hover .cristina__result-link-text,
+.cristina__result-link:focus-visible .cristina__result-link-text {
+  box-shadow: inset 0 -1px 0 0 var(--c-cabernet);
+}
+
+/* Outbound: the arrow leaves the page rather than running along it. */
+.cristina__result-link:hover .btn__arrow {
+  transform: translate(3px, -3px);
+}
+
+.cristina__result-url {
+  margin-top: var(--s-2);
+}
+
+/* --------------------------------------------------------------------------
+   PROJECT DETAILS — the colophon
+   -------------------------------------------------------------------------- */
+.cristina__details {
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.cristina__details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.25rem) var(--grid-gap);
+}
+
+.cristina__detail {
+  border-top: 1px solid var(--rule);
+  padding-top: 0.8rem;
+}
+
+.cristina__detail-value {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h4);
+  line-height: 1.3;
+  margin-top: 0.35rem;
+  text-wrap: pretty;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .cristina__step {
+    grid-template-columns: 3rem minmax(0, 1fr);
+  }
+
+  .cristina__stack {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .cristina__tool-copy {
+    max-width: 52ch;
+  }
+
+  .cristina__result {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cristina__details-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  /* One plate to a line, flush: two columns here would leave each screenshot
+     too small to read. */
+  .cristina__plates {
+    grid-template-columns: minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 3rem);
+  }
+
+  .cristina__plate:nth-child(2n) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .cristina__step {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--s-3);
+  }
+
+  .cristina__details-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

@@ -22,6 +22,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: entry('./index.html'),
+        cristinaDafin: entry('./work/cristina-dafin/index.html'),
         psycoffee: entry('./work/psycoffee/index.html'),
       },
     },

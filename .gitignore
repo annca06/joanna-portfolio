@@ -5,3 +5,8 @@ dist-ssr
 *.local
 .vite
 .claude/
+
+# Source material, not production assets. The screenshots that were cut down
+# for the site live in public/images/projects/<project>/ — this folder is the
+# originals they came from, and is never deployed.
+src/joanna-portfolio-cristina-update/
